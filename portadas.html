@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Portadas · ONE Propiedades</title>
+<link rel="icon" href="logo-cream.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+  *{box-sizing:border-box}
+  :root{--teal:#1A6B6B;--teal-deep:#12504F;--emerald:#44A690;--mint:#79C1B8;--cream:#F7F2E8;--ink:#2B3A38;--ink-soft:#5A6B68;--line:#DCD6C7;--r:14px}
+  body{margin:0;font-family:Poppins,system-ui,sans-serif;background:var(--cream);color:var(--ink)}
+  header{background:var(--teal-deep);color:var(--cream);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:5}
+  header h1{margin:0;font-size:1.1rem;font-weight:600}
+  header p{margin:2px 0 0;font-size:.82rem;color:var(--mint)}
+  .btn{font:inherit;font-size:.9rem;font-weight:600;border:0;border-radius:999px;padding:11px 20px;cursor:pointer}
+  .btn-main{background:var(--cream);color:var(--teal-deep)}
+  .btn-main:disabled{opacity:.45;cursor:default}
+  .btn-sec{background:transparent;color:var(--teal);border:1px solid var(--line)}
+  .btn:focus-visible,.item:focus-visible,.mini:focus-visible,.seg button:focus-visible{outline:2px solid var(--emerald);outline-offset:2px}
+  main{display:grid;grid-template-columns:280px 1fr;gap:28px;max-width:1100px;margin:0 auto;padding:28px 24px 60px}
+  @media (max-width:760px){main{grid-template-columns:1fr;padding-top:18px}.lista{flex-direction:row;overflow-x:auto;padding-bottom:6px}.item{flex:none;width:210px}}
+  .lista{display:flex;flex-direction:column;gap:6px}
+  .item{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:inherit;font-size:.86rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px;cursor:pointer;color:var(--ink)}
+  .item img{width:56px;height:36px;object-fit:cover;border-radius:6px;flex:none}
+  .item[aria-current="true"]{border-color:var(--teal);box-shadow:inset 3px 0 0 var(--teal)}
+  .item .cambio{margin-left:auto;width:8px;height:8px;border-radius:50%;background:var(--emerald);flex:none}
+  .panel h2{margin:0 0 4px;font-size:1.2rem}
+  .ayuda{margin:0 0 18px;font-size:.86rem;color:var(--ink-soft);max-width:60ch}
+  /* tarjeta idéntica a la de la web */
+  .prop{width:100%;max-width:360px;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .prop .foto{aspect-ratio:16/10;overflow:hidden;position:relative;background:var(--teal);touch-action:none;cursor:grab}
+  .prop .foto.arrastrando{cursor:grabbing}
+  .prop .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;user-select:none}
+  .prop .foto.completa{cursor:default}
+  .prop .foto.completa::before{content:"";position:absolute;inset:-30px;background:var(--fondo) center/cover;filter:blur(22px) brightness(.82)}
+  .prop .foto.completa img{object-fit:contain}
+  .badge{position:absolute;top:12px;left:12px;background:var(--cream);color:var(--teal);font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;border-radius:999px;z-index:2}
+  .prop .body{padding:16px 20px}
+  .prop .body b{font-size:1.02rem;font-weight:600}
+  .vista{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+  .controles{flex:1;min-width:240px;display:flex;flex-direction:column;gap:18px}
+  .ctl label,.ctl .rot{display:block;font-size:.8rem;font-weight:600;margin-bottom:8px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:#fff}
+  .seg button{font:inherit;font-size:.84rem;border:0;background:transparent;padding:8px 16px;border-radius:999px;cursor:pointer;color:var(--ink)}
+  .seg button[aria-pressed="true"]{background:var(--teal);color:var(--cream)}
+  input[type=range]{width:100%;accent-color:var(--teal)}
+  .nota{font-size:.8rem;color:var(--ink-soft);margin:6px 0 0}
+  .fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px;margin-top:26px}
+  .mini{padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;background:none;aspect-ratio:3/4}
+  .mini img{width:100%;height:100%;object-fit:cover;display:block}
+  .mini[aria-pressed="true"]{border-color:var(--teal)}
+  .aviso{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--teal-deep);color:var(--cream);padding:14px 20px;border-radius:12px;font-size:.88rem;max-width:min(520px,92vw);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+  .error{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Portadas de propiedades</h1>
+    <p id="estado">Cargando propiedades…</p>
+  </div>
+  <button class="btn btn-main" id="descargar" disabled>Descargar index.html</button>
+</header>
+
+<main id="app" hidden>
+  <nav class="lista" id="lista" aria-label="Propiedades"></nav>
+  <section class="panel">
+    <h2 id="titulo"></h2>
+    <p class="ayuda">Elegí la foto de portada abajo. Arrastrá la foto sobre la tarjeta para encuadrarla. La tarjeta se ve exactamente como en la web.</p>
+    <div class="vista">
+      <div class="prop">
+        <div class="foto" id="foto"><img id="img" alt=""><span class="badge">En venta</span></div>
+        <div class="body"><b id="nombre"></b></div>
+      </div>
+      <div class="controles">
+        <div class="ctl">
+          <span class="rot">Cómo se muestra</span>
+          <div class="seg" role="group" aria-label="Modo">
+            <button type="button" data-modo="llenar" aria-pressed="true">Recortada</button>
+            <button type="button" data-modo="completa" aria-pressed="false">Foto entera</button>
+          </div>
+          <p class="nota" id="notaModo">Llena todo el recuadro. Ideal para fotos horizontales.</p>
+        </div>
+        <div class="ctl" id="ctlZoom">
+          <label for="zoom">Zoom</label>
+          <input type="range" id="zoom" min="1" max="2.5" step="0.05" value="1">
+        </div>
+        <div><button class="btn btn-sec" type="button" id="centrar">Centrar</button></div>
+      </div>
+    </div>
+    <div class="fotos" id="fotos"></div>
+  </section>
+</main>
+<div class="error" id="error" hidden style="max-width:640px;margin:40px auto"></div>
+<div class="aviso" id="aviso" hidden></div>
+
+<script>
+(function(){
+  var ORIGINAL = "", props = [], actual = null;
+  var $ = function(id){ return document.getElementById(id); };
+
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
+  function r1(n){ return Math.round(n*10)/10; }
+
+  fetch("index.html?t=" + Date.now()).then(function(r){ return r.text(); }).then(function(html){
+    ORIGINAL = html;
+    var doc = new DOMParser().parseFromString(html, "text/html");
+    doc.querySelectorAll(".props a.prop").forEach(function(a){
+      var img = a.querySelector(".foto img"), f = a.querySelector(".foto");
+      if (!img) return;
+      var p = {
+        href: a.getAttribute("href"),
+        nombre: ((a.querySelector(".zona")||{}).textContent || a.getAttribute("href")).trim(),
+        tipo: ((a.querySelector("h3")||{}).textContent || "").trim(),
+        alt: img.getAttribute("alt") || "",
+        badge: (f.querySelector(".badge")||{}).textContent || "En venta",
+        src: img.getAttribute("src"),
+        modo: f.classList.contains("completa") ? "completa" : "llenar",
+        x: parseFloat(img.dataset.x || 50), y: parseFloat(img.dataset.y || 50), z: parseFloat(img.dataset.z || 1),
+        fotos: [], cambiada: false
+      };
+      p.inicial = JSON.stringify([p.src,p.modo,p.x,p.y,p.z]);
+      props.push(p);
+    });
+    return Promise.all(props.map(function(p){
+      return fetch(p.href + "?t=" + Date.now()).then(function(r){ return r.text(); }).then(function(t){
+        var m = t.match(/var F = (\[[\s\S]*?\]), i = 0;/);
+        var lista = m ? JSON.parse(m[1]).map(function(f){ return f[0]; }) : [];
+        if (lista.indexOf(p.src) < 0) lista.unshift(p.src);
+        p.fotos = lista;
+      }).catch(function(){ p.fotos = [p.src]; });
+    }));
+  }).then(function(){
+    if (!props.length) throw new Error("sin tarjetas");
+    armarLista(); elegir(props[0]);
+    $("app").hidden = false;
+    $("estado").textContent = props.length + " propiedades · sin cambios";
+  }).catch(function(e){
+    $("estado").textContent = "No se pudo cargar";
+    $("error").hidden = false;
+    $("error").textContent = "Esta página funciona abierta desde la web (onepropiedades.com.ar/portadas.html), no desde un archivo en la compu.";
+  });
+
+  function armarLista(){
+    var l = $("lista"); l.innerHTML = "";
+    props.forEach(function(p){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "item";
+      b.innerHTML = '<img src="' + esc(p.src) + '" alt=""><span>' + esc(p.nombre) + '</span>' + (p.cambiada ? '<span class="cambio" title="Con cambios"></span>' : '');
+      b.setAttribute("aria-current", p === actual ? "true" : "false");
+      b.onclick = function(){ elegir(p); };
+      l.appendChild(b);
+    });
+  }
+
+  function elegir(p){
+    actual = p;
+    $("titulo").textContent = p.nombre; $("nombre").textContent = p.tipo;
+    var f = $("fotos"); f.innerHTML = "";
+    p.fotos.forEach(function(src){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "mini";
+      b.setAttribute("aria-pressed", src === p.src ? "true" : "false");
+      b.setAttribute("aria-label", "Usar " + src + " de portada");
+      b.innerHTML = '<img src="' + esc(src) + '" alt="" loading="lazy">';
+      b.onclick = function(){ p.src = src; p.x = 50; p.y = 50; p.z = 1; cambio(); elegir(p); };
+      f.appendChild(b);
+    });
+    pintar(); armarLista();
+  }
+
+  function pintar(){
+    var p = actual, foto = $("foto"), img = $("img");
+    img.src = p.src;
+    foto.classList.toggle("completa", p.modo === "completa");
+    foto.style.setProperty("--fondo", "url('" + p.src + "')");
+    if (p.modo === "completa"){
+      img.style.objectPosition = ""; img.style.transform = ""; img.style.transformOrigin = "";
+    } else {
+      img.style.objectPosition = p.x + "% " + p.y + "%";
+      img.style.transform = p.z > 1 ? "scale(" + p.z + ")" : "";
+      img.style.transformOrigin = p.x + "% " + p.y + "%";
+    }
+    document.querySelectorAll(".seg button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.modo === p.modo ? "true" : "false"); });
+    $("ctlZoom").hidden = p.modo === "completa";
+    $("centrar").hidden = p.modo === "completa";
+    $("notaModo").textContent = p.modo === "completa"
+      ? "Muestra la foto sin recortar, con un fondo difuminado. Ideal para fotos verticales."
+      : "Llena todo el recuadro. Arrastrá la foto para elegir qué parte se ve.";
+    $("zoom").value = p.z;
+  }
+
+  function cambio(){
+    actual.cambiada = JSON.stringify([actual.src,actual.modo,actual.x,actual.y,actual.z]) !== actual.inicial;
+    var n = props.filter(function(p){ return p.cambiada; }).length;
+    $("estado").textContent = props.length + " propiedades · " + (n ? n + (n === 1 ? " con cambios" : " con cambios") : "sin cambios");
+    $("descargar").disabled = !n;
+    armarLista();
+  }
+
+  document.querySelectorAll(".seg button").forEach(function(b){
+    b.onclick = function(){ actual.modo = b.dataset.modo; cambio(); pintar(); };
+  });
+  $("zoom").oninput = function(){ actual.z = parseFloat(this.value); cambio(); pintar(); };
+  $("centrar").onclick = function(){ actual.x = 50; actual.y = 50; actual.z = 1; cambio(); pintar(); };
+
+  // arrastrar para encuadrar
+  var arr = null, foto = $("foto");
+  foto.addEventListener("pointerdown", function(e){
+    if (actual.modo === "completa") return;
+    var img = $("img"), W = foto.clientWidth, H = foto.clientHeight;
+    var nw = img.naturalWidth || W, nh = img.naturalHeight || H;
+    var s = Math.max(W/nw, H/nh);
+    arr = { x0: e.clientX, y0: e.clientY, px: actual.x, py: actual.y,
+      sobraX: Math.max(nw*s - W, 0) + W*(actual.z-1), sobraY: Math.max(nh*s - H, 0) + H*(actual.z-1) };
+    foto.setPointerCapture(e.pointerId); foto.classList.add("arrastrando");
+  });
+  foto.addEventListener("pointermove", function(e){
+    if (!arr) return;
+    if (arr.sobraX > 1) actual.x = r1(Math.min(100, Math.max(0, arr.px - (e.clientX - arr.x0) / arr.sobraX * 100)));
+    if (arr.sobraY > 1) actual.y = r1(Math.min(100, Math.max(0, arr.py - (e.clientY - arr.y0) / arr.sobraY * 100)));
+    pintar();
+  });
+  function soltar(){ if (arr){ arr = null; foto.classList.remove("arrastrando"); cambio(); } }
+  foto.addEventListener("pointerup", soltar); foto.addEventListener("pointercancel", soltar);
+
+  function fotoHTML(p){
+    var badge = '<span class="badge">' + esc(p.badge) + '</span>';
+    if (p.modo === "completa")
+      return '<div class="foto completa" style="--fondo:url(\'' + esc(p.src) + '\')"><img src="' + esc(p.src) + '" alt="' + esc(p.alt) + '" loading="lazy">' + badge + '</div>';
+    var st = "object-position:" + p.x + "% " + p.y + "%";
+    if (p.z > 1) st += ";transform:scale(" + p.z + ");transform-origin:" + p.x + "% " + p.y + "%";
+    return '<div class="foto"><img src="' + esc(p.src) + '" alt="' + esc(p.alt) + '" loading="lazy" data-x="' + p.x + '" data-y="' + p.y + '" data-z="' + p.z + '" style="' + st + '">' + badge + '</div>';
+  }
+
+  $("descargar").onclick = function(){
+    var html = ORIGINAL;
+    props.forEach(function(p){
+      if (!p.cambiada) return;
+      var a = html.indexOf('href="' + p.href + '"');
+      if (a < 0) return;
+      var ini = html.indexOf('<div class="foto', a);
+      var fin = html.indexOf('</div>', html.indexOf('</span>', ini)) + 6;
+      html = html.slice(0, ini) + fotoHTML(p) + html.slice(fin);
+    });
+    var blob = new Blob([html], {type: "text/html"});
+    var link = document.createElement("a");
+    link.href = URL.createObjectURL(blob); link.download = "index.html";
+    document.body.appendChild(link); link.click(); link.remove();
+    var av = $("aviso");
+    av.textContent = "Listo. Reemplazá el index.html de la carpeta del sitio por este y subí la carpeta a Netlify.";
+    av.hidden = false; setTimeout(function(){ av.hidden = true; }, 9000);
+  };
+})();
+</script>
+</body>
+</html>
