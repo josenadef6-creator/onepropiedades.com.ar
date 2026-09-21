@@ -1,0 +1,23 @@
+<script>
+(function(){
+  var F = [[LISTA_FOTOS]], i = 0;
+  var foto=document.getElementById("foto"), pie=document.getElementById("pie"),
+      cont=document.getElementById("contador"), tiras=document.getElementById("tiras");
+  function pintar(){
+    foto.src=F[i][0]; foto.alt=F[i][1]; pie.textContent=F[i][1];
+    cont.textContent=(i+1)+" de "+F.length;
+    var t=tiras.children;
+    for(var k=0;k<t.length;k++) t[k].setAttribute("aria-current", k===i?"true":"false");
+  }
+  function mover(d){ i=(i+d+F.length)%F.length; pintar(); }
+  document.getElementById("prev").addEventListener("click",function(){mover(-1);});
+  document.getElementById("next").addEventListener("click",function(){mover(1);});
+  Array.prototype.forEach.call(tiras.children,function(t){
+    t.addEventListener("click",function(){ i=parseInt(t.getAttribute("data-i"),10); pintar(); });
+  });
+  document.addEventListener("keydown",function(e){
+    if(e.key==="ArrowLeft")mover(-1);
+    if(e.key==="ArrowRight")mover(1);
+  });
+})();
+</script>

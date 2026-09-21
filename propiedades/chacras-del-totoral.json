@@ -1,0 +1,71 @@
+{
+  "titulo": "Casa en country",
+  "link": "chacras-del-totoral",
+  "tipo": "casa",
+  "zona": "Country Chacras del Totoral",
+  "lugar": "Chacras del Totoral",
+  "precio": "Consultar",
+  "resumen": "3 dormitorios, principal en suite con vestidor · patio interno · amplia galería",
+  "datos_tarjeta": "3 dorm. · 292,37 m² construidos · 462 m² sup. total",
+  "etiqueta": "Sismorresistente",
+  "portada": "tot-fachada.jpg",
+  "portada_posicion": "50% 55%",
+  "fotos": [
+    {
+      "foto": "tot-frente.jpg",
+      "epigrafe": "Frente"
+    },
+    {
+      "foto": "tot-fachada.jpg",
+      "epigrafe": "Fachada"
+    },
+    {
+      "foto": "tot-patio.jpg",
+      "epigrafe": "Patio interno"
+    },
+    {
+      "foto": "tot-galeria.jpg",
+      "epigrafe": "Galería con parrilla"
+    },
+    {
+      "foto": "tot-bano.jpg",
+      "epigrafe": "Baño"
+    },
+    {
+      "foto": "tot-placard.jpg",
+      "epigrafe": "Dormitorio con placard"
+    },
+    {
+      "foto": "tot-dormitorio.jpg",
+      "epigrafe": "Dormitorio"
+    }
+  ],
+  "ficha": [
+    {
+      "dato": "Ubicación",
+      "valor": "Country Chacras del Totoral"
+    },
+    {
+      "dato": "Superficie total",
+      "valor": "462 m²"
+    },
+    {
+      "dato": "Superficie construida",
+      "valor": "292,37 m²"
+    },
+    {
+      "dato": "Planta baja",
+      "valor": "Hall de ingreso · toilette · estudio / escritorio · lavadero independiente · cocina integrada · comedor · living-estar · patio interno · garage · amplia galería"
+    },
+    {
+      "dato": "Planta alta",
+      "valor": "Dormitorio principal en suite con vestidor · dos dormitorios · baño completo · hall de distribución"
+    },
+    {
+      "dato": "Estructura",
+      "valor": "Hormigón armado con sistema sismorresistente"
+    }
+  ],
+  "descripcion": "Casa en venta en Country Chacras del Totoral. 3 dormitorios, principal en suite con vestidor · patio interno · amplia galería · 292,37 m² construidos.",
+  "orden": 60
+}

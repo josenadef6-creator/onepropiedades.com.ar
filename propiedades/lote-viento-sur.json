@@ -1,0 +1,51 @@
+{
+  "titulo": "Lote Manzana T",
+  "link": "lote-viento-sur",
+  "tipo": "terreno",
+  "zona": "San Pablo · Country Viento Sur",
+  "lugar": "",
+  "precio": "US$ 49.000",
+  "resumen": "364 m² · ubicación central · todos los servicios",
+  "datos_tarjeta": "364 m² · Todos los servicios",
+  "etiqueta": "Amenities",
+  "portada": "vst-calle.jpg",
+  "portada_posicion": "",
+  "fotos": [
+    {
+      "foto": "vst-calle.jpg",
+      "epigrafe": "Calle interna del country"
+    },
+    {
+      "foto": "vst-club.jpg",
+      "epigrafe": "Club house, pileta y canchas"
+    },
+    {
+      "foto": "vst-plano.jpg",
+      "epigrafe": "Plano del loteo"
+    }
+  ],
+  "ficha": [
+    {
+      "dato": "Ubicación",
+      "valor": "Country Viento Sur, San Pablo"
+    },
+    {
+      "dato": "Superficie",
+      "valor": "364 m²"
+    },
+    {
+      "dato": "Manzana",
+      "valor": "T · ubicación central"
+    },
+    {
+      "dato": "Servicios",
+      "valor": "Todos los servicios"
+    },
+    {
+      "dato": "Amenities",
+      "valor": "Club house, quincho, pileta, paddle, tenis, fútbol y seguridad"
+    }
+  ],
+  "descripcion": "",
+  "orden": 80
+}

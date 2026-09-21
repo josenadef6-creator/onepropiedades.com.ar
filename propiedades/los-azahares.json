@@ -1,0 +1,47 @@
+{
+  "titulo": "Casa en country",
+  "link": "los-azahares",
+  "tipo": "casa",
+  "zona": "Yerba Buena · Los Azahares",
+  "lugar": "",
+  "precio": "US$ 330.000",
+  "resumen": "4 dormitorios · 4 baños · 380 m² cubiertos sobre lote de 1.500 m²",
+  "datos_tarjeta": "4 dorm. · 4 baños · 380 m² cub. · 1.500 m² terreno",
+  "etiqueta": "Apto crédito",
+  "portada": "az-frente.jpg",
+  "portada_posicion": "",
+  "fotos": [
+    {
+      "foto": "az-frente.jpg",
+      "epigrafe": "Frente de la casa"
+    }
+  ],
+  "ficha": [
+    {
+      "dato": "Ubicación",
+      "valor": "Country Los Azahares, La Rioja 3500, Yerba Buena"
+    },
+    {
+      "dato": "Superficie cubierta",
+      "valor": "380 m²"
+    },
+    {
+      "dato": "Terreno",
+      "valor": "1.500 m²"
+    },
+    {
+      "dato": "Dormitorios",
+      "valor": "4, dos en suite"
+    },
+    {
+      "dato": "Baños",
+      "valor": "4"
+    },
+    {
+      "dato": "Documentación",
+      "valor": "Con escritura · apta crédito hipotecario"
+    }
+  ],
+  "descripcion": "",
+  "orden": 70
+}

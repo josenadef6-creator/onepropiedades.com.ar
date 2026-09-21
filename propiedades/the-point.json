@@ -1,0 +1,55 @@
+{
+  "titulo": "Casa en country",
+  "link": "the-point",
+  "tipo": "casa",
+  "zona": "San Pablo · The Point",
+  "lugar": "",
+  "precio": "US$ 260.000",
+  "resumen": "3 dormitorios · 2 baños · 199 m² cubiertos sobre lote de 380 m²",
+  "datos_tarjeta": "3 dorm. · 2 baños · 199 m² cub. · 380 m² terreno",
+  "etiqueta": "Apto crédito",
+  "portada": "tp-portada.jpg",
+  "portada_posicion": "",
+  "fotos": [
+    {
+      "foto": "tp-entrada.jpg",
+      "epigrafe": "Entrada"
+    },
+    {
+      "foto": "tp-galeria.jpg",
+      "epigrafe": "Galería con vista al cerro"
+    },
+    {
+      "foto": "tp-living.jpg",
+      "epigrafe": "Living"
+    }
+  ],
+  "ficha": [
+    {
+      "dato": "Ubicación",
+      "valor": "Country The Point, San Pablo"
+    },
+    {
+      "dato": "Superficie cubierta",
+      "valor": "199 m²"
+    },
+    {
+      "dato": "Terreno",
+      "valor": "380 m²"
+    },
+    {
+      "dato": "Dormitorios",
+      "valor": "3"
+    },
+    {
+      "dato": "Baños",
+      "valor": "2"
+    },
+    {
+      "dato": "Documentación",
+      "valor": "Con escritura · apta crédito hipotecario"
+    }
+  ],
+  "descripcion": "",
+  "orden": 10
+}

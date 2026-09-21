@@ -1,0 +1,67 @@
+{
+  "titulo": "Casa en country",
+  "link": "viento-sur",
+  "tipo": "casa",
+  "zona": "San Pablo · Viento Sur",
+  "lugar": "",
+  "precio": "US$ 255.000",
+  "resumen": "3 dormitorios · 3 baños · 205 m² cubiertos sobre lote de 385 m²",
+  "datos_tarjeta": "3 dorm. · 3 baños · 205 m² cub. · 385 m² terreno",
+  "etiqueta": "Apto crédito",
+  "portada": "vs-portada.jpg",
+  "portada_posicion": "",
+  "fotos": [
+    {
+      "foto": "vs-aerea.jpg",
+      "epigrafe": "Vista aérea"
+    },
+    {
+      "foto": "vs-galeria.jpg",
+      "epigrafe": "Galería con asador"
+    },
+    {
+      "foto": "vs-cocina.jpg",
+      "epigrafe": "Cocina"
+    },
+    {
+      "foto": "vs-cocina2.jpg",
+      "epigrafe": "Cocina y living"
+    },
+    {
+      "foto": "vs-dormitorio.jpg",
+      "epigrafe": "Dormitorio"
+    },
+    {
+      "foto": "vs-vestidor.jpg",
+      "epigrafe": "Vestidor"
+    }
+  ],
+  "ficha": [
+    {
+      "dato": "Ubicación",
+      "valor": "Country Viento Sur, San Pablo"
+    },
+    {
+      "dato": "Superficie cubierta",
+      "valor": "205 m²"
+    },
+    {
+      "dato": "Terreno",
+      "valor": "385 m²"
+    },
+    {
+      "dato": "Dormitorios",
+      "valor": "3"
+    },
+    {
+      "dato": "Baños",
+      "valor": "3"
+    },
+    {
+      "dato": "Documentación",
+      "valor": "Con escritura · apta crédito hipotecario"
+    }
+  ],
+  "descripcion": "",
+  "orden": 20
+}

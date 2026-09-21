@@ -1,0 +1,38 @@
+{
+  "titulo": "Lote en country",
+  "link": "la-pedemontana",
+  "tipo": "terreno",
+  "zona": "Yerba Buena · La Pedemontana",
+  "lugar": "",
+  "precio": "US$ 145.000",
+  "resumen": "703 m² · ubicación central · amenities con quincho y pileta",
+  "datos_tarjeta": "703 m² · Ubicación central",
+  "etiqueta": "Amenities",
+  "portada": "",
+  "portada_posicion": "",
+  "fotos": [],
+  "ficha": [
+    {
+      "dato": "Ubicación",
+      "valor": "La Pedemontana, Yerba Buena"
+    },
+    {
+      "dato": "Superficie",
+      "valor": "703 m²"
+    },
+    {
+      "dato": "Ubicación dentro del country",
+      "valor": "Central"
+    },
+    {
+      "dato": "Amenities",
+      "valor": "Quincho con pileta"
+    },
+    {
+      "dato": "Documentación",
+      "valor": "Con escritura"
+    }
+  ],
+  "descripcion": "",
+  "orden": 90
+}

@@ -1,0 +1,67 @@
+{
+  "titulo": "Dúplex a estrenar",
+  "link": "chacras",
+  "tipo": "casa",
+  "zona": "Chacras de Chubut",
+  "lugar": "",
+  "precio": "US$ 245.000",
+  "resumen": "3 dormitorios, uno en suite · galería con parrilla y pileta · terreno de 300 m²",
+  "datos_tarjeta": "3 dorm. · 2 baños · 300 m² terreno",
+  "etiqueta": "A estrenar",
+  "portada": "ch-frente.jpg",
+  "portada_posicion": "",
+  "fotos": [
+    {
+      "foto": "ch-frente.jpg",
+      "epigrafe": "Frente"
+    },
+    {
+      "foto": "ch-aerea.jpg",
+      "epigrafe": "El entorno, con el cerro de fondo"
+    },
+    {
+      "foto": "ch-cocina.jpg",
+      "epigrafe": "Cocina equipada"
+    },
+    {
+      "foto": "ch-estar.jpg",
+      "epigrafe": "Estar"
+    },
+    {
+      "foto": "ch-hall.jpg",
+      "epigrafe": "Hall y escalera"
+    },
+    {
+      "foto": "ch-jardin.jpg",
+      "epigrafe": "Jardín con pileta"
+    }
+  ],
+  "ficha": [
+    {
+      "dato": "Ubicación",
+      "valor": "Chacras de Chubut"
+    },
+    {
+      "dato": "Terreno",
+      "valor": "300 m²"
+    },
+    {
+      "dato": "Dormitorios",
+      "valor": "3, uno en suite"
+    },
+    {
+      "dato": "Baños",
+      "valor": "Baño compartido y toilette"
+    },
+    {
+      "dato": "Exterior",
+      "valor": "Galería con parrilla y pileta"
+    },
+    {
+      "dato": "Terminaciones",
+      "valor": "Aberturas de PVC · mesada de mármol"
+    }
+  ],
+  "descripcion": "",
+  "orden": 50
+}

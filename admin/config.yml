@@ -1,0 +1,140 @@
+# Panel de administración de ONE Propiedades (Decap CMS)
+# Se entra desde https://www.onepropiedades.com.ar/admin con la cuenta de GitHub.
+
+backend:
+  name: github
+  repo: josenadef6-creator/onepropiedades.com.ar
+  branch: main
+  site_domain: onepropiedades.netlify.app
+  commit_messages:
+    create: "Nueva propiedad: {{slug}}"
+    update: "Cambios en {{slug}}"
+    delete: "Baja de propiedad: {{slug}}"
+    uploadMedia: "Foto nueva: {{path}}"
+    deleteMedia: "Foto borrada: {{path}}"
+
+locale: es
+site_url: https://www.onepropiedades.com.ar
+display_url: https://www.onepropiedades.com.ar
+logo_url: https://www.onepropiedades.com.ar/logo-cream.png
+
+media_folder: fotos
+public_folder: fotos
+
+collections:
+  - name: propiedades
+    label: Propiedades
+    label_singular: Propiedad
+    description: "Cada propiedad genera su página (onepropiedades.com.ar/LINK.html) y su tarjeta en el catálogo. Los cambios tardan 1 o 2 minutos en verse en la web."
+    folder: propiedades
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: "{{link}}"
+    identifier_field: link
+    summary: "{{titulo}} · {{zona}} · {{precio}}"
+    sortable_fields: [orden, titulo, zona]
+    editor:
+      preview: false
+    fields:
+      - label: Título
+        name: titulo
+        widget: string
+        hint: "Tipo de propiedad. Ej: Casa en country, Lote en country, Dúplex a estrenar, Galpón"
+
+      - label: Link de la propiedad
+        name: link
+        widget: string
+        hint: "Así queda la dirección: onepropiedades.com.ar/LINK.html · Solo minúsculas, números y guiones, sin espacios ni tildes. Ej: casa-the-point"
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Solo minúsculas, números y guiones (sin espacios ni tildes)"]
+
+      - label: Tipo (para los filtros del catálogo)
+        name: tipo
+        widget: select
+        default: casa
+        options:
+          - { label: Casa, value: casa }
+          - { label: Terreno, value: terreno }
+          - { label: Comercial, value: comercial }
+
+      - label: Zona
+        name: zona
+        widget: string
+        hint: "Ej: San Pablo · The Point"
+
+      - label: Lugar corto (opcional)
+        name: lugar
+        widget: string
+        required: false
+        hint: "Solo si querés que el título de la página y el mensaje de WhatsApp usen otro nombre que la zona. Si lo dejás vacío se usa la zona."
+
+      - label: Precio
+        name: precio
+        widget: string
+        hint: "Ej: US$ 260.000 · o Consultar"
+
+      - label: Resumen
+        name: resumen
+        widget: string
+        hint: "Una línea, va debajo del precio y en la vista previa de WhatsApp. Ej: 3 dormitorios · 2 baños · 199 m² cubiertos sobre lote de 380 m²"
+
+      - label: Datos de la tarjeta
+        name: datos_tarjeta
+        widget: string
+        hint: "Versión corta para la tarjeta del catálogo. Ej: 3 dorm. · 2 baños · 199 m² cub. · 380 m² terreno"
+
+      - label: Etiqueta (opcional)
+        name: etiqueta
+        widget: string
+        required: false
+        hint: "Aparece en la tarjeta. Ej: Apto crédito, A estrenar, Amenities"
+
+      - label: Foto de portada
+        name: portada
+        widget: image
+        required: false
+        choose_url: false
+        hint: "La de la tarjeta del catálogo y la vista previa al compartir por WhatsApp. Si no ponés ninguna, se usa la primera foto de la galería."
+
+      - label: Encuadre de la portada (opcional)
+        name: portada_posicion
+        widget: string
+        required: false
+        hint: "Qué parte de la foto se ve en la tarjeta. Horizontal y vertical en %. Ej: 50% 30% (más arriba) · Vacío = centrada"
+
+      - label: Fotos de la galería
+        name: fotos
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.epigrafe}}"
+        label_singular: foto
+        hint: "En el orden en que se muestran. Si no hay fotos, la página dice que se están produciendo."
+        fields:
+          - { label: Foto, name: foto, widget: image, choose_url: false }
+          - { label: Epígrafe, name: epigrafe, widget: string, hint: "Ej: Living, Galería con parrilla" }
+
+      - label: Ficha técnica
+        name: ficha
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.dato}}: {{fields.valor}}"
+        label_singular: dato
+        fields:
+          - { label: Dato, name: dato, widget: string, hint: "Ej: Superficie cubierta" }
+          - { label: Valor, name: valor, widget: string, hint: "Ej: 199 m²" }
+
+      - label: Descripción para Google (opcional)
+        name: descripcion
+        widget: text
+        required: false
+        hint: "Si lo dejás vacío se arma sola con el título, la zona, el resumen y el precio."
+
+      - label: Orden en el catálogo
+        name: orden
+        widget: number
+        value_type: int
+        default: 100
+        hint: "Número más bajo = aparece más arriba. Las actuales van de 10 en 10 (10, 20, 30…) para poder meter una en el medio."

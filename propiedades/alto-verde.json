@@ -1,0 +1,67 @@
+{
+  "titulo": "Casa a estrenar",
+  "link": "alto-verde",
+  "tipo": "casa",
+  "zona": "Yerba Buena · Alto Verde 3",
+  "lugar": "",
+  "precio": "US$ 260.000",
+  "resumen": "3 dormitorios + oficina · 246 m² cubiertos sobre lote de 420 m²",
+  "datos_tarjeta": "3 dorm. · 3 baños · 246 m² cub. · 420 m² terreno",
+  "etiqueta": "A estrenar",
+  "portada": "av-frente.jpg",
+  "portada_posicion": "",
+  "fotos": [
+    {
+      "foto": "av-frente.jpg",
+      "epigrafe": "Frente"
+    },
+    {
+      "foto": "av-galeria.jpg",
+      "epigrafe": "Galería y jardín"
+    },
+    {
+      "foto": "av-living.jpg",
+      "epigrafe": "Living comedor"
+    },
+    {
+      "foto": "av-cocina.jpg",
+      "epigrafe": "Cocina"
+    },
+    {
+      "foto": "av-escalera.jpg",
+      "epigrafe": "Escalera"
+    },
+    {
+      "foto": "av-dormitorio.jpg",
+      "epigrafe": "Dormitorio"
+    }
+  ],
+  "ficha": [
+    {
+      "dato": "Ubicación",
+      "valor": "Alto Verde 3, Manzana P, Yerba Buena"
+    },
+    {
+      "dato": "Superficie cubierta",
+      "valor": "246 m²"
+    },
+    {
+      "dato": "Terreno",
+      "valor": "420 m²"
+    },
+    {
+      "dato": "Dormitorios",
+      "valor": "3, uno en suite con vestidor"
+    },
+    {
+      "dato": "Baños",
+      "valor": "Baño en suite, baño compartido y toilette"
+    },
+    {
+      "dato": "Extras",
+      "valor": "Oficina, galería, lavadero y dependencia de servicio"
+    }
+  ],
+  "descripcion": "",
+  "orden": 40
+}

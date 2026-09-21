@@ -1,0 +1,71 @@
+{
+  "titulo": "Casa a estrenar",
+  "link": "viento-sur-h11",
+  "tipo": "casa",
+  "zona": "San Pablo · Viento Sur · Lote H11",
+  "lugar": "",
+  "precio": "Consultar",
+  "resumen": "Casa a estrenar en una planta · galería con parrilla · cochera cubierta",
+  "datos_tarjeta": "A estrenar · Galería con parrilla · Cochera cubierta",
+  "etiqueta": "A estrenar",
+  "portada": "vsh11-frente.jpg",
+  "portada_posicion": "",
+  "fotos": [
+    {
+      "foto": "vsh11-frente.jpg",
+      "epigrafe": "Frente y cochera"
+    },
+    {
+      "foto": "vsh11-aerea.jpg",
+      "epigrafe": "Vista aérea y jardín"
+    },
+    {
+      "foto": "vsh11-galeria.jpg",
+      "epigrafe": "Galería con parrilla"
+    },
+    {
+      "foto": "vsh11-cocina.jpg",
+      "epigrafe": "Cocina con isla"
+    },
+    {
+      "foto": "vsh11-dormitorio.jpg",
+      "epigrafe": "Dormitorio con placar"
+    },
+    {
+      "foto": "vsh11-dormitorio2.jpg",
+      "epigrafe": "Segundo dormitorio"
+    },
+    {
+      "foto": "vsh11-bano.jpg",
+      "epigrafe": "Toilette"
+    }
+  ],
+  "ficha": [
+    {
+      "dato": "Ubicación",
+      "valor": "Country Viento Sur, San Pablo · Lote H11"
+    },
+    {
+      "dato": "Tipo",
+      "valor": "Casa en una planta, a estrenar"
+    },
+    {
+      "dato": "Dormitorios",
+      "valor": "Con placares completos"
+    },
+    {
+      "dato": "Baños",
+      "valor": "Baño completo y toilette"
+    },
+    {
+      "dato": "Cocina",
+      "valor": "Cocina abierta con isla y mesada de granito"
+    },
+    {
+      "dato": "Exterior",
+      "valor": "Galería con parrilla, cochera cubierta y jardín"
+    }
+  ],
+  "descripcion": "",
+  "orden": 30
+}

@@ -1,0 +1,4 @@
+# Netlify arma la web con build.py y publica la carpeta _site
+[build]
+  command = "python3 build.py"
+  publish = "_site"
