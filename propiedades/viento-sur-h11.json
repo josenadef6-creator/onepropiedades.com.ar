@@ -1,15 +1,11 @@
 {
-  "titulo": "Casa a estrenar",
-  "link": "viento-sur-h11",
-  "tipo": "casa",
-  "zona": "San Pablo · Viento Sur · Lote H11",
-  "lugar": "",
-  "precio": "Consultar",
   "resumen": "Casa a estrenar en una planta · galería con parrilla · cochera cubierta",
+  "precio": "us$190.000",
+  "zona": "San Pablo · Viento Sur · Lote H11",
   "datos_tarjeta": "A estrenar · Galería con parrilla · Cochera cubierta",
-  "etiqueta": "A estrenar",
-  "portada": "vsh11-frente.jpg",
-  "portada_posicion": "",
+  "orden": 30,
+  "descripcion": "",
+  "lugar": "",
   "fotos": [
     {
       "foto": "vsh11-frente.jpg",
@@ -40,6 +36,8 @@
       "epigrafe": "Toilette"
     }
   ],
+  "tipo": "casa",
+  "etiqueta": "A estrenar",
   "ficha": [
     {
       "dato": "Ubicación",
@@ -66,6 +64,8 @@
       "valor": "Galería con parrilla, cochera cubierta y jardín"
     }
   ],
-  "descripcion": "",
-  "orden": 30
+  "titulo": "Casa a estrenar",
+  "link": "viento-sur-h11",
+  "portada_posicion": "",
+  "portada": "vsh11-frente.jpg"
 }
