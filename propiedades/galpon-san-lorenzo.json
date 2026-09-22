@@ -1,33 +1,19 @@
 {
-  "titulo": "Galpón",
-  "link": "galpon-san-lorenzo",
-  "tipo": "comercial",
-  "zona": "San Miguel de Tucumán · San Lorenzo",
-  "lugar": "",
-  "precio": "US$ 220.000",
   "resumen": "500 m² cubiertos · apto producción gastronómica · a 200 m de Av. Colón",
+  "precio": "US$ 200.000",
+  "zona": "San Miguel de Tucumán · San Lorenzo",
   "datos_tarjeta": "500 m² cub. · Uso comercial",
-  "etiqueta": "Gas alto caudal",
-  "portada": "gal-frente.jpg",
-  "portada_posicion": "",
+  "orden": 100,
+  "descripcion": "",
+  "lugar": "",
   "fotos": [
     {
-      "foto": "gal-frente.jpg",
-      "epigrafe": "Frente sobre San Lorenzo 2300"
-    },
-    {
-      "foto": "gal-nave.jpg",
-      "epigrafe": "Nave principal"
-    },
-    {
-      "foto": "gal-nave2.jpg",
-      "epigrafe": "Luz cenital"
-    },
-    {
-      "foto": "gal-oficina.jpg",
-      "epigrafe": "Oficinas y servicios"
+      "foto": "fotos/whatsapp-image-2026-09-14-at-12.49.35-4-.jpeg",
+      "epigrafe": "Foto interior del Galpon. "
     }
   ],
+  "tipo": "comercial",
+  "etiqueta": "Gas alto caudal",
   "ficha": [
     {
       "dato": "Ubicación",
@@ -46,6 +32,8 @@
       "valor": "Eléctrica industrial y gas de alto caudal"
     }
   ],
-  "descripcion": "",
-  "orden": 100
+  "titulo": "Galpón",
+  "link": "galpon-san-lorenzo",
+  "portada_posicion": "",
+  "portada": "fotos/whatsapp-image-2026-09-14-at-12.49.35-3-.jpeg"
 }
