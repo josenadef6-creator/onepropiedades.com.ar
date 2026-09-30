@@ -1,15 +1,11 @@
 {
-  "titulo": "Casa en country",
-  "link": "chacras-del-totoral",
-  "tipo": "casa",
-  "zona": "Country Chacras del Totoral",
-  "lugar": "Chacras del Totoral",
-  "precio": "Consultar",
   "resumen": "3 dormitorios, principal en suite con vestidor · patio interno · amplia galería",
+  "precio": "us$355.000",
+  "zona": "Country Chacras del Totoral",
   "datos_tarjeta": "3 dorm. · 292,37 m² construidos · 462 m² sup. total",
-  "etiqueta": "Sismorresistente",
-  "portada": "tot-fachada.jpg",
-  "portada_posicion": "50% 55%",
+  "orden": 60,
+  "descripcion": "Casa en venta en Country Chacras del Totoral. 3 dormitorios, principal en suite con vestidor · patio interno · amplia galería · 292,37 m² construidos.",
+  "lugar": "Chacras del Totoral",
   "fotos": [
     {
       "foto": "tot-frente.jpg",
@@ -40,6 +36,8 @@
       "epigrafe": "Dormitorio"
     }
   ],
+  "tipo": "casa",
+  "etiqueta": "Sismorresistente",
   "ficha": [
     {
       "dato": "Ubicación",
@@ -66,6 +64,8 @@
       "valor": "Hormigón armado con sistema sismorresistente"
     }
   ],
-  "descripcion": "Casa en venta en Country Chacras del Totoral. 3 dormitorios, principal en suite con vestidor · patio interno · amplia galería · 292,37 m² construidos.",
-  "orden": 60
+  "titulo": "Casa en country",
+  "link": "chacras-del-totoral",
+  "portada_posicion": "50% 55%",
+  "portada": "tot-fachada.jpg"
 }
