@@ -12,6 +12,18 @@
     {
       "foto": "fotos/img20260923113056.jpg",
       "epigrafe": "Cocina"
+    },
+    {
+      "foto": "fotos/img20260923113500.jpg",
+      "epigrafe": "Galeria "
+    },
+    {
+      "foto": "fotos/img20260923113311.jpg",
+      "epigrafe": "Dormitorios"
+    },
+    {
+      "foto": "fotos/img20260923113242.jpg",
+      "epigrafe": "Baño."
     }
   ],
   "tipo": "casa",
