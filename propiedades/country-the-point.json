@@ -18,12 +18,12 @@
       "epigrafe": "Galeria "
     },
     {
-      "foto": "fotos/img20260923113311.jpg",
-      "epigrafe": "Dormitorios"
-    },
-    {
       "foto": "fotos/img20260923113242.jpg",
       "epigrafe": "Baño."
+    },
+    {
+      "foto": "fotos/img_9117.jpg",
+      "epigrafe": "Casa"
     }
   ],
   "tipo": "casa",
