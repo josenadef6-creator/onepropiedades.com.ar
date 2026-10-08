@@ -1,15 +1,11 @@
 {
-  "titulo": "Casa a estrenar",
-  "link": "alto-verde",
-  "tipo": "casa",
-  "zona": "Yerba Buena · Alto Verde 3",
-  "lugar": "",
-  "precio": "US$ 260.000",
   "resumen": "3 dormitorios + oficina · 246 m² cubiertos sobre lote de 420 m²",
+  "precio": "US$ 255.000",
+  "zona": "Yerba Buena · Alto Verde 3",
   "datos_tarjeta": "3 dorm. · 3 baños · 246 m² cub. · 420 m² terreno",
-  "etiqueta": "A estrenar",
-  "portada": "av-frente.jpg",
-  "portada_posicion": "",
+  "orden": 40,
+  "descripcion": "",
+  "lugar": "",
   "fotos": [
     {
       "foto": "av-frente.jpg",
@@ -36,6 +32,8 @@
       "epigrafe": "Dormitorio"
     }
   ],
+  "tipo": "casa",
+  "etiqueta": "A estrenar",
   "ficha": [
     {
       "dato": "Ubicación",
@@ -62,6 +60,8 @@
       "valor": "Oficina, galería, lavadero y dependencia de servicio"
     }
   ],
-  "descripcion": "",
-  "orden": 40
+  "titulo": "Casa a estrenar",
+  "link": "alto-verde",
+  "portada_posicion": "",
+  "portada": "av-frente.jpg"
 }
