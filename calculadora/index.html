@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de crédito hipotecario · ONE Propiedades</title>
+<meta name="description" content="Calculá la cuota aproximada de tu crédito hipotecario en dólares y en pesos. ONE Propiedades, Yerba Buena, Tucumán.">
+<meta property="og:title" content="Calculadora de crédito hipotecario · ONE Propiedades">
+<meta property="og:description" content="Calculá cuánto pagarías por mes para comprar tu casa con crédito.">
+<meta property="og:image" content="https://www.onepropiedades.com.ar/og-one.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.onepropiedades.com.ar/calculadora/">
+<meta name="theme-color" content="#1A6B6B">
+<link rel="icon" href="/logo-cream.png">
+<link rel="apple-touch-icon" href="/logo-cream.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --teal:#1A6B6B; --teal-deep:#12504F; --teal-med:#238880; --emerald:#44A690; --mint:#79C1B8; --cream:#F7F2E8;
+  --bg:var(--cream); --surface:#FFFFFF; --text:#2B3A38; --text-soft:#5A6B68; --border:#DCD6C7;
+  --accent:var(--teal); --soft:#E6F0EC;
+  --f:"Poppins","Segoe UI",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F2523; --surface:#15302E; --text:#EDE7DA; --text-soft:#A9BDB8; --border:#25453F;
+    --accent:var(--mint); --soft:#1C3B38; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F2523; --surface:#15302E; --text:#EDE7DA; --text-soft:#A9BDB8; --border:#25453F;
+  --accent:var(--mint); --soft:#1C3B38; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f);font-size:15px;line-height:1.5}
+img{max-width:100%}
+.wrap{max-width:960px;margin-inline:auto;padding-inline:16px}
+
+.topbar{position:sticky;top:0;z-index:20;background:var(--teal);color:var(--cream);border-bottom:1px solid rgba(247,242,232,.12);padding-top:env(safe-area-inset-top,0px)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{display:flex;align-items:center}
+.mark img{height:34px;width:auto;display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;border:1px solid transparent;font:inherit;font-weight:600;font-size:.9rem;text-decoration:none;cursor:pointer;transition:background .15s ease}
+.btn-solid{background:var(--emerald);color:#08302B}
+.btn-solid:hover{background:var(--mint)}
+.btn-sm{padding:8px 16px;font-size:.8rem}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+
+.hero{background:var(--teal);color:var(--cream);padding-block:26px 34px}
+.eyebrow{display:inline-block;margin:0 0 12px;padding:5px 14px;border-radius:999px;background:var(--emerald);color:var(--cream);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+h1{margin:0;font-weight:800;font-size:clamp(1.7rem,6vw,2.6rem);line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+.lede{margin:10px 0 0;color:rgba(247,242,232,.85);max-width:52ch}
+
+main{padding-block:0 36px}
+.grid{display:grid;gap:16px;margin-top:-18px;grid-template-areas:"result" "inputs" "detail"}
+.col-r{display:contents}
+.result{grid-area:result}.inputs{grid-area:inputs}.detail{grid-area:detail}
+@media (min-width:780px){
+  .grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"inputs right";align-items:start;gap:20px}
+  .col-r{display:grid;gap:20px;grid-area:right;align-content:start}
+  .result{position:static !important}
+}
+.result{position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);z-index:5;background:var(--teal-med);color:var(--cream);border-radius:14px;padding:14px 18px 16px;box-shadow:0 8px 24px rgba(18,80,79,.22)}
+.result-label{margin:0;font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
+.result-ars{margin:2px 0 0;font-weight:800;font-size:clamp(2.2rem,9vw,3rem);line-height:1.05;letter-spacing:-.02em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.result-usd{margin:4px 0 0;font-weight:500;font-variant-numeric:tabular-nums;color:rgba(247,242,232,.9)}
+
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+.inputs{display:grid;gap:22px}
+.field{display:grid;gap:8px;min-width:0}
+.field label,.lbl{font-size:.82rem;font-weight:600}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+output{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.hint{margin:0;font-size:.78rem;color:var(--text-soft)}
+.affix{display:flex;align-items:stretch;border:1px solid var(--border);border-radius:10px;background:var(--surface);overflow:hidden}
+.affix:focus-within{outline:2px solid var(--emerald);outline-offset:1px}
+.affix span{display:flex;align-items:center;padding-inline:12px;font-size:.82rem;font-weight:600;color:var(--accent);background:var(--soft)}
+.affix input{flex:1;min-width:0;border:0;background:transparent;color:var(--text);font:inherit;font-size:16px;font-weight:500;font-variant-numeric:tabular-nums;padding:11px 12px}
+.affix input:focus{outline:none}
+input[type="range"]{width:100%;accent-color:var(--emerald);margin:4px 0 0}
+input[type="range"]:focus-visible{outline:2px solid var(--emerald);outline-offset:4px;border-radius:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:.86rem;font-weight:500;min-height:40px;padding:8px 14px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--text);cursor:pointer}
+.chip:hover{border-color:var(--emerald)}
+.chip:focus-visible{outline:2px solid var(--emerald);outline-offset:2px}
+.chip[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:var(--cream)}
+
+.detail{display:grid;gap:18px}
+.facts{margin:0;display:grid}
+.fact{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;padding-block:11px;border-top:1px solid var(--border)}
+.fact:first-child{border-top:0;padding-top:0}
+.fact dt{color:var(--text-soft)}
+.fact dt small{display:block;font-size:.76rem}
+.fact dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;min-width:0}
+.sec{margin:0 0 8px;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-soft)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:9px 10px;text-align:right;white-space:nowrap}
+thead th{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-soft);border-bottom:1px solid var(--border)}
+thead th:first-child,tbody th{text-align:left}
+tbody th{font-weight:500}
+tbody tr+tr>*{border-top:1px solid var(--border)}
+tbody tr.on>*{background:var(--soft);font-weight:600}
+
+.cta{display:grid;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+.cta p{margin:0}
+.cta .btn{width:100%}
+.note{margin:18px 0 0;font-size:.78rem;color:var(--text-soft)}
+
+footer{background:var(--teal-deep);color:var(--cream);padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));text-align:center}
+footer p{margin:0}
+.foot-logo{height:48px;width:auto;margin:0 auto 14px;display:block;opacity:.92}
+footer .firma{font-weight:600;font-size:.92rem}
+footer .cred{margin-top:6px;font-size:.8rem;color:var(--mint)}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="/"><img src="/logo-cream.png" alt="ONE Propiedades"></a>
+    <a class="btn btn-solid btn-sm" href="https://wa.me/5493816363940?text=Hola%20ONE%2C%20quiero%20asesorarme%20por%20un%20cr%C3%A9dito%20hipotecario" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Crédito hipotecario</p>
+    <h1>¿Cuánto pagarías por mes?</h1>
+    <p class="lede">Cargá el valor de la propiedad y mirá la cuota aproximada del crédito, en dólares y en pesos.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="grid">
+    <section class="result" aria-live="polite">
+      <p class="result-label">Cuota aproximada por mes</p>
+      <p class="result-ars" id="outArs">—</p>
+      <p class="result-usd" id="outUsd">—</p>
+    </section>
+
+    <section class="panel inputs" aria-label="Datos del crédito">
+      <div class="field">
+        <label for="valor">Valor de la propiedad</label>
+        <div class="affix"><span>USD</span><input id="valor" type="text" inputmode="numeric" autocomplete="off" value="80.000"></div>
+      </div>
+      <div class="field">
+        <div class="row"><label for="fin">Porcentaje a financiar</label><output id="finOut" for="fin">70%</output></div>
+        <input id="fin" type="range" min="10" max="100" step="5" value="70">
+      </div>
+      <div class="field">
+        <label for="tna">Tasa anual (TNA)</label>
+        <div class="chips" role="group" aria-label="Tasas de referencia">
+          <button type="button" class="chip" data-tna="6.9" aria-pressed="false">Nación 6,9%</button>
+          <button type="button" class="chip" data-tna="7.5" aria-pressed="false">Francés 7,5%</button>
+        </div>
+        <div class="affix"><input id="tna" type="text" inputmode="decimal" autocomplete="off" value="6,9"><span>%</span></div>
+      </div>
+      <div class="field">
+        <span class="lbl" id="plazoLbl">Plazo</span>
+        <div class="chips" role="group" aria-labelledby="plazoLbl">
+          <button type="button" class="chip" data-years="10" aria-pressed="false">10 años</button>
+          <button type="button" class="chip" data-years="15" aria-pressed="false">15 años</button>
+          <button type="button" class="chip" data-years="20" aria-pressed="true">20 años</button>
+          <button type="button" class="chip" data-years="25" aria-pressed="false">25 años</button>
+          <button type="button" class="chip" data-years="30" aria-pressed="false">30 años</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="tc">Dólar para pasar a pesos</label>
+        <div class="affix"><span>$</span><input id="tc" type="text" inputmode="decimal" autocomplete="off" value="1.450"></div>
+        <p class="hint">Valor de ejemplo. Poné la cotización del día.</p>
+      </div>
+    </section>
+
+    <div class="col-r">
+      <section class="panel detail" aria-label="Detalle">
+        <dl class="facts">
+          <div class="fact"><dt>Monto del crédito</dt><dd id="credit">—</dd></div>
+          <div class="fact"><dt>Anticipo</dt><dd id="down">—</dd></div>
+          <div class="fact"><dt>Ingreso familiar necesario<small>con la cuota entre el 30% y el 25% del ingreso</small></dt><dd id="income">—</dd></div>
+        </dl>
+        <div>
+          <p class="sec">Misma propiedad, otros plazos</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Plazo</th><th scope="col">Cuota USD</th><th scope="col">Cuota en pesos</th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <p><strong>¿Querés comprar con crédito?</strong><br>Te asesoramos con la propiedad y el banco.</p>
+        <a class="btn btn-solid" id="waCta" href="https://wa.me/5493816363940?text=Hola%20ONE%2C%20quiero%20asesorarme%20por%20un%20cr%C3%A9dito%20hipotecario" target="_blank" rel="noopener">Asesorate con ONE</a>
+      </section>
+    </div>
+  </div>
+  <p class="note">Estimación orientativa. La cuota exacta la calcula el banco.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="foot-logo" src="/logo-cream.png" alt="ONE Propiedades">
+    <p class="firma">José Ignacio Nadef</p>
+    <p class="cred">Corredor Inmobiliario · Matr. C.I. 0432 · 381-6363940 · onepropiedades.com.ar</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var nf=new Intl.NumberFormat('es-AR',{maximumFractionDigits:0});
+  var nf2=new Intl.NumberFormat('es-AR',{maximumFractionDigits:2});
+  var YEARS=[10,15,20,25,30], years=20, DASH='—';
+  function parseMoney(s){var n=parseFloat(String(s).replace(/[\s.$]/g,'').replace(',','.'));return isFinite(n)?n:NaN}
+  function parseRate(s){var n=parseFloat(String(s).replace(/\s/g,'').replace(',','.'));return isFinite(n)?n:NaN}
+  // Sistema francés: cuota = P * i * (1+i)^n / ((1+i)^n - 1)
+  function pmt(P,tna,y){var n=y*12,i=tna/100/12;if(i===0)return P/n;var g=Math.pow(1+i,n);return P*i*g/(g-1)}
+  function k(x){return nf.format(Math.round(x/1000)*1000)}
+  function ars(x){return '$ '+k(x)}
+  function usd(x){return 'USD '+nf.format(Math.round(x))}
+  function render(){
+    var V=parseMoney($('valor').value), f=Number($('fin').value), tna=parseRate($('tna').value), tc=parseMoney($('tc').value);
+    $('finOut').textContent=f+'%';
+    document.querySelectorAll('[data-tna]').forEach(function(b){b.setAttribute('aria-pressed',Math.abs(parseFloat(b.dataset.tna)-tna)<1e-9?'true':'false')});
+    document.querySelectorAll('[data-years]').forEach(function(b){b.setAttribute('aria-pressed',Number(b.dataset.years)===years?'true':'false')});
+    if(!(V>0&&tna>=0&&tc>0)){
+      ['outArs','outUsd','credit','down','income'].forEach(function(id){$(id).textContent=DASH});
+      $('rows').innerHTML='';return;
+    }
+    var P=V*f/100, q=pmt(P,tna,years), qArs=q*tc;
+    $('outArs').textContent=ars(qArs);
+    $('outUsd').textContent=usd(q)+' por mes · '+years+' años';
+    $('credit').textContent=usd(P);
+    $('down').textContent=usd(V-P);
+    $('income').textContent='$ '+k(qArs/0.30)+' a '+k(qArs/0.25);
+    $('rows').innerHTML=YEARS.map(function(y){var c=pmt(P,tna,y);return '<tr'+(y===years?' class="on"':'')+'><th scope="row">'+y+' años</th><td>'+usd(c)+'</td><td>'+ars(c*tc)+'</td></tr>'}).join('');
+    var msg='Hola ONE, quiero asesorarme por un crédito hipotecario para una propiedad de '+usd(V)+' (cuota estimada '+usd(q)+' a '+years+' años).';
+    $('waCta').href='https://wa.me/5493816363940?text='+encodeURIComponent(msg);
+  }
+  ['valor','fin','tna','tc'].forEach(function(id){$(id).addEventListener('input',render)});
+  [['valor',nf],['tc',nf2]].forEach(function(p){$(p[0]).addEventListener('blur',function(){var n=parseMoney(this.value);if(n>0)this.value=p[1].format(n);render()})});
+  document.querySelectorAll('[data-tna]').forEach(function(b){b.addEventListener('click',function(){$('tna').value=this.dataset.tna.replace('.',',');render()})});
+  document.querySelectorAll('[data-years]').forEach(function(b){b.addEventListener('click',function(){years=Number(this.dataset.years);render()})});
+  render();
+})();
+</script>
+</body>
+</html>
