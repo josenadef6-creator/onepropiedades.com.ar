@@ -1,0 +1,34 @@
+# Actualiza todos los días los índices de la calculadora de alquileres
+# (onepropiedades.com.ar/alquileres) con datos del BCRA y del INDEC.
+# También se puede correr a mano: pestaña Actions → "Actualizar índices de alquiler" → Run workflow.
+name: Actualizar índices de alquiler
+
+on:
+  schedule:
+    - cron: "37 11 * * *"   # todos los días, 8:37 de Argentina
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  indices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Bajar índices del BCRA y del INDEC
+        run: python .github/indices.py
+      - name: Guardar si cambiaron
+        run: |
+          if [ -z "$(git status --porcelain alquileres/indices.json)" ]; then
+            echo "Sin cambios."
+            exit 0
+          fi
+          git config user.name "ONE índices"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add alquileres/indices.json
+          git commit -m "Actualizar índices de alquiler"
+          git push
