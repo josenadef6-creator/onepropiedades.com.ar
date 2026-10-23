@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de rentabilidad · ONE Propiedades</title>
+<meta name="description" content="Calculá la rentabilidad anual en dólares de una propiedad en alquiler. ONE Propiedades, Yerba Buena, Tucumán.">
+<meta name="theme-color" content="#1A6B6B">
+<meta property="og:title" content="Calculadora de rentabilidad · ONE Propiedades">
+<meta property="og:description" content="Calculá cuánto rinde por año una propiedad en alquiler, en dólares.">
+<meta property="og:image" content="https://www.onepropiedades.com.ar/og-one.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.onepropiedades.com.ar/rentabilidad/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#1A6B6B; --teal2:#238880; --emerald:#44A690; --mint:#79C1B8;
+    --cream:#F7F2E8; --ink:#173F3F; --muted:#5E7A78; --line:#E2DACB; --card:#FFFDF8; --gray:#B9B2A4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Poppins',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.45}
+  a{color:inherit}
+
+  .top{background:linear-gradient(160deg,var(--teal) 0%,#1E7A76 60%,var(--teal2) 100%);color:var(--cream);padding:0 16px 96px}
+  .nav{max-width:600px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .nav img{height:40px;display:block}
+  .nav .wa{font-size:14px;font-weight:600;text-decoration:none;border:1.5px solid rgba(247,242,232,.55);padding:7px 16px;border-radius:999px}
+  .hero{max-width:600px;margin:0 auto;padding-top:22px}
+  .eyebrow{display:inline-block;background:var(--emerald);color:var(--cream);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+  h1{font-size:clamp(30px,7vw,42px);font-weight:800;line-height:1.1;margin:16px 0 10px}
+  .hero p{color:var(--mint);font-size:16px;max-width:500px}
+
+  main{max-width:600px;margin:-72px auto 0;padding:0 16px 40px}
+
+  .result{background:var(--teal2);color:var(--cream);border-radius:22px;padding:26px 22px;box-shadow:0 14px 36px rgba(23,63,63,.22);text-align:center}
+  .lbl{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
+  .big{font-size:clamp(56px,16vw,76px);font-weight:800;line-height:1;margin:10px 0 6px}
+  .big small{font-size:.45em;font-weight:600;color:var(--mint)}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+  .kpi{background:rgba(26,107,107,.55);border-radius:14px;padding:12px 10px}
+  .kpi span{display:block;font-size:11px;color:var(--mint);font-weight:500;line-height:1.25}
+  @media (max-width:400px){.kpi b{font-size:15px}}
+  .kpi b{display:block;font-size:18px;font-weight:700;margin-top:2px;white-space:nowrap}
+
+  .block{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 18px;margin-top:16px}
+  .block h2{font-size:16px;font-weight:700;color:var(--teal);margin-bottom:4px}
+  .block .lead{font-size:13px;color:var(--muted);margin-bottom:16px}
+  .field + .field{margin-top:14px}
+  label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+  .hint{font-size:12px;color:var(--muted);margin-top:5px}
+  .input{display:flex;align-items:center;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:0 14px;transition:border-color .15s}
+  .input:focus-within{border-color:var(--emerald)}
+  .input span{color:var(--muted);font-weight:600;font-size:15px}
+  .input input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:18px;font-weight:600;color:var(--ink);padding:13px 8px}
+  .seg{display:flex;gap:8px}
+  .seg button{flex:1;font:inherit;font-size:15px;font-weight:600;border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:11px 0;border-radius:12px;cursor:pointer}
+  .seg button.on{background:var(--teal);border-color:var(--teal);color:var(--cream)}
+
+  .cta{background:var(--teal);color:var(--cream);border-radius:20px;padding:24px 20px;margin-top:16px;text-align:center}
+  .cta strong{display:block;font-size:19px;font-weight:700}
+  .cta p{color:var(--mint);font-size:14px;margin:4px 0 16px}
+  .btn{display:inline-block;background:var(--cream);color:var(--teal);font-weight:700;font-size:15px;text-decoration:none;padding:13px 28px;border-radius:999px}
+  .note{font-size:12px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.55}
+
+  footer{background:var(--teal);color:var(--cream);text-align:center;padding:30px 16px 36px}
+  footer img{height:36px;margin-bottom:14px}
+  footer b{display:block;font-weight:700}
+  footer span{display:block;color:var(--mint);font-size:13px;margin-top:4px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <nav class="nav">
+    <a href="https://onepropiedades.com.ar/"><img src="https://onepropiedades.com.ar/logo-cream.png" alt="ONE Propiedades"></a>
+    <a class="wa" id="waTop" href="#">WhatsApp</a>
+  </nav>
+  <div class="hero">
+    <span class="eyebrow">Inversión en dólares</span>
+    <h1>¿Cuánto rinde tu propiedad?</h1>
+    <p>Cargá el valor de la propiedad y el alquiler, y mirá la rentabilidad anual en dólares.</p>
+  </div>
+</header>
+
+<main>
+  <section class="result" aria-live="polite">
+    <div class="lbl">Rentabilidad bruta anual</div>
+    <div class="big" id="rPct">—</div>
+    <div class="kpis">
+      <div class="kpi"><span>Renta por año</span><b id="rAnual">—</b></div>
+      <div class="kpi"><span id="r2lbl">Contrato de 2 años</span><b id="r2">—</b></div>
+      <div class="kpi"><span>Recuperás la inversión en</span><b id="rAnios">—</b></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="field">
+      <label for="precio">Valor de la propiedad</label>
+      <div class="input"><span>USD</span><input id="precio" inputmode="numeric" value="70.000"></div>
+    </div>
+    <div class="field">
+      <label for="alquiler">Alquiler por mes</label>
+      <div class="input"><span>USD</span><input id="alquiler" inputmode="numeric" value="520"></div>
+    </div>
+    <div class="field">
+      <label>Plazo del contrato</label>
+      <div class="seg" id="plazo">
+        <button type="button" data-y="1">1 año</button>
+        <button type="button" data-y="2" class="on">2 años</button>
+        <button type="button" data-y="3">3 años</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <strong>¿Querés invertir en una propiedad?</strong>
+    <p>Te asesoramos para elegir la que mejor rinde.</p>
+    <a class="btn" id="waCta" href="#">Asesorate con ONE</a>
+  </section>
+  <p class="note">Rentabilidad bruta: alquiler anual sobre el valor de la propiedad, sin descontar gastos ni impuestos. Valores en dólares, sin actualización. Estimación orientativa.</p>
+</main>
+
+<footer>
+  <img src="https://onepropiedades.com.ar/logo-cream.png" alt="ONE Propiedades">
+  <b>José Ignacio Nadef</b>
+  <span>Corredor Inmobiliario · Matr. C.I. 0432 · 381-6363940 · onepropiedades.com.ar</span>
+</footer>
+
+<script>
+(function(){
+  var WA = 'https://wa.me/5493816363940?text=' + encodeURIComponent('Hola ONE, quiero asesorarme para invertir en una propiedad');
+  document.getElementById('waTop').href = WA;
+  document.getElementById('waCta').href = WA;
+
+  var $ = function(id){ return document.getElementById(id); };
+  var nf0 = new Intl.NumberFormat('es-AR',{maximumFractionDigits:0});
+  var nf1 = new Intl.NumberFormat('es-AR',{minimumFractionDigits:1,maximumFractionDigits:1});
+  var nf2 = new Intl.NumberFormat('es-AR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  var usd = function(n){ return 'USD ' + nf0.format(Math.round(n)); };
+  var anios = 2;
+  var num = function(el){ return +el.value.replace(/\D/g,'') || 0; };
+
+  function render(){
+    var P = num($('precio')), R = num($('alquiler'));
+    var ok = P > 0 && R > 0, anual = R * 12;
+    $('rPct').innerHTML = ok ? nf2.format(anual / P * 100) + '<small>%</small>' : '—';
+    $('rAnual').textContent = ok ? usd(anual) : '—';
+    $('r2lbl').textContent = 'Contrato de ' + anios + (anios === 1 ? ' año' : ' años');
+    $('r2').textContent = ok ? usd(anual * anios) : '—';
+    $('rAnios').textContent = ok ? nf1.format(P / anual) + ' años' : '—';
+  }
+
+  ['precio','alquiler'].forEach(function(id){
+    $(id).addEventListener('input', function(){
+      var d = this.value.replace(/\D/g,'');
+      this.value = d ? nf0.format(+d) : '';
+      render();
+    });
+  });
+  document.querySelectorAll('#plazo button').forEach(function(b){
+    b.addEventListener('click', function(){
+      anios = +b.dataset.y;
+      document.querySelectorAll('#plazo button').forEach(function(x){ x.classList.toggle('on', x === b); });
+      render();
+    });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
