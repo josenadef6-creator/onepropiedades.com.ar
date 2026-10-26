@@ -120,12 +120,29 @@
 
   /* ---------- hero ---------- */
   .hero{
-    background:
-      radial-gradient(120% 90% at 80% 0%, rgba(68,166,144,.30), transparent 60%),
-      linear-gradient(160deg, var(--teal-deep), var(--teal) 55%, #1E7A75);
+    position:relative;overflow:hidden;isolation:isolate;
+    background:var(--teal-deep);
     color:var(--cream);
-    padding-block:clamp(56px,8vw,96px);
+    padding-block:clamp(72px,10vw,128px);
   }
+  /* video de dron de los cerros de Tucumán (la foto queda de respaldo) */
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-3;
+    background:url("hero-cerros.jpg") center/cover no-repeat;
+  }
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;pointer-events:none}
+  @media (prefers-reduced-motion:reduce){ .hero-video{display:none} }
+  /* velo teal para que el texto se lea */
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      linear-gradient(90deg, rgba(14,62,61,.90) 0%, rgba(18,80,79,.66) 42%, rgba(18,80,79,.18) 100%),
+      linear-gradient(0deg, rgba(14,62,61,.55) 0%, transparent 45%);
+  }
+  @media (max-width:900px){
+    .hero::after{background:linear-gradient(180deg, rgba(14,62,61,.78) 0%, rgba(18,80,79,.70) 55%, rgba(14,62,61,.88) 100%)}
+  }
+  .hero h1,.hero p.lead{text-shadow:0 2px 18px rgba(0,0,0,.25)}
   .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center}
   @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} }
   .hero h1{font-size:clamp(2.1rem,5.4vw,3.5rem);font-weight:800}
@@ -135,10 +152,11 @@
   .hero-note{margin-top:22px;font-size:.82rem;color:var(--mint)}
 
   .card-tasa{
-    background:rgba(247,242,232,.07);
-    border:1px solid rgba(121,193,184,.35);
+    background:rgba(14,62,61,.45);
+    border:1px solid rgba(247,242,232,.22);
     border-radius:18px;padding:26px;
-    backdrop-filter:blur(2px);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
   }
   .card-tasa h3{font-size:1.02rem;font-weight:600;color:var(--cream)}
   .card-tasa ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
@@ -413,6 +431,9 @@
 </header>
 
 <section class="hero" id="inicio">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-cerros.jpg" aria-hidden="true">
+    <source src="hero-cerros.mp4" type="video/mp4">
+  </video>
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow" style="color:var(--mint)">Tasaciones · Venta · Inversión · Yerba Buena, Tucumán</p>
